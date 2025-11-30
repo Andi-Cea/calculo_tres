@@ -1,5 +1,20 @@
 import streamlit as st
-import math  # ✅ Agregar esta importación
+import math  
+
+def check_answer_vector(correct_answer, user_answer, tolerance=0.01):
+    """Verifica si la respuesta del usuario es correcta"""
+    try:
+        if abs(float(correct_answer) - float(user_answer)) <= tolerance:
+            st.session_state.score_vector += 10
+            st.session_state.exercises_completed_vector += 1
+            st.success("🎉 ¡Correcto! +10 puntos")
+            return True
+        else:
+            st.error("❌ Incorrecto. Intenta nuevamente.")
+            return False
+    except:
+        st.error("❌ Formato inválido. Usa números.")
+        return False
 
 def app():
     st.title("📚 Ejercicios Interactivos - Cálculo Vectorial")
@@ -9,21 +24,6 @@ def app():
         st.session_state.score_vector = 0
     if 'exercises_completed_vector' not in st.session_state:
         st.session_state.exercises_completed_vector = 0
-    
-    def check_answer_vector(correct_answer, user_answer, tolerance=0.01):
-        """Verifica si la respuesta del usuario es correcta"""
-        try:
-            if abs(float(correct_answer) - float(user_answer)) <= tolerance:
-                st.session_state.score_vector += 10
-                st.session_state.exercises_completed_vector += 1
-                st.success("🎉 ¡Correcto! +10 puntos")
-                return True
-            else:
-                st.error("❌ Incorrecto. Intenta nuevamente.")
-                return False
-        except:
-            st.error("❌ Formato inválido. Usa números.")
-            return False
 
     # Menú de temas
     tema = st.sidebar.selectbox(
@@ -328,6 +328,6 @@ def app():
             if correcto_curvas and correcto_valor:
                 st.session_state.score_vector += 5
 
-# Ejecutar la aplicación  # ✅ Sangría corregida
+# Ejecutar la aplicación
 if __name__ == "__main__":
     app()
