@@ -17,7 +17,7 @@ def check_answer_int(correct_answer, user_answer, tolerance=0.01):
         return False
 
 def app():
-    st.title("📚 Ejercicios Interactivos - Cálculo Integral Multivariable")
+    st.title("📚 Ejercicios Interactivos - Unidad 3")
     
     # Inicializar estado de la sesión
     if 'score_int' not in st.session_state:
