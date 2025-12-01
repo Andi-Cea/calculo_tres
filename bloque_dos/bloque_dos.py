@@ -19,7 +19,7 @@ def check_answer_multivar(correct_answer, user_answer, tolerance=0.01):
         return False
 
 def app():
-    st.title("📚 Ejercicios Interactivos - Cálculo Multivariable")
+    st.title("📚 Ejercicios Interactivos - Unidad 2")
     
     # Inicializar estado de la sesión
     if 'score_multivar' not in st.session_state:
