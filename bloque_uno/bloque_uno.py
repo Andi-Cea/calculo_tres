@@ -17,7 +17,7 @@ def check_answer_vector(correct_answer, user_answer, tolerance=0.01):
         return False
 
 def app():
-    st.title("📚 Ejercicios Interactivos - Unidad 1")
+    st.title("📚 Ejercicios Interactivos - Unidad 1·")
     
     # Inicializar estado de la sesión
     if 'score_vector' not in st.session_state:
